@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -14,7 +16,6 @@ public class Vegetable {
 	private Integer VegetableId;
 	private String VegetableName;
 	private float VegetablePrice;
-	private String VegetableSupply;
 	private Date VegetableDate;
 	private String VegetableGrade;
 	private String VegetableDescribe;
@@ -22,6 +23,8 @@ public class Vegetable {
 	private String VegetableState;
 	private String VegetablePicture;
 	private String VegetableLocation;
+	
+	private Supply Supply;
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -43,11 +46,13 @@ public class Vegetable {
 	public void setVegetablePrice(float vegetablePrice) {
 		VegetablePrice = vegetablePrice;
 	}
-	public String getVegetableSupply() {
-		return VegetableSupply;
+	@ManyToOne
+	@JoinColumn(name="SupplyName")
+	public Supply getSupply() {
+		return Supply;
 	}
-	public void setVegetableSupply(String vegetableSupply) {
-		VegetableSupply = vegetableSupply;
+	public void setSupply(Supply Supply) {
+		this.Supply = Supply;
 	}
 	public Date getVegetableDate() {
 		return VegetableDate;

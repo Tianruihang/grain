@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.course.entity.Supply;
 import com.course.entity.Vegetable;
 import com.course.vegetable.service.VegetableServiceImpl;
 import com.framework.Page;
@@ -21,9 +22,9 @@ public class VegetableController {
 	@Resource
 	private VegetableServiceImpl vegetableServiceImpl;
 	
-	@RequestMapping("addv")
+	@RequestMapping("add")
 	public String add(@RequestParam(name="VegetableName") String vname,@RequestParam(name="VegetablePrice") Integer vprice,
-			@RequestParam(name="VegetableSupply") String vsupply,@RequestParam(name="VegetableGrade") String vgrade,
+			@RequestParam(name="VegetableSupply") Supply vsupply,@RequestParam(name="VegetableGrade") String vgrade,
 			@RequestParam(name="VegetableDescribe") String vdescribe,
 			@RequestParam(name="VegetableClass") String vclass,
 			@RequestParam(name="VegetableState") String vstate,
@@ -40,7 +41,7 @@ public class VegetableController {
 		String location = null;
 		try {
 			name = new String(vname.getBytes("ISO8859_1"), "UTF-8");
-			supply = new String(vsupply.getBytes("ISO8859_1"), "UTF-8");
+			
 			grade = new String(vgrade.getBytes("ISO8859_1"), "UTF-8");
 			describe = new String(vdescribe.getBytes("ISO8859_1"), "UTF-8");
 			classes = new String(vclass.getBytes("ISO8859_1"), "UTF-8");
@@ -53,7 +54,7 @@ public class VegetableController {
 		Vegetable v = new Vegetable();
 		v.setVegetableName(name);
 		v.setVegetablePrice(vprice);
-		v.setVegetableSupply(supply);
+	
 		v.setVegetableClass(classes);
 		v.setVegetableDescribe(describe);
 		v.setVegetableGrade(grade);

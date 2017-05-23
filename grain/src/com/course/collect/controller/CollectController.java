@@ -13,6 +13,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.course.collect.service.CollectServiceImpl;
 import com.course.entity.Collect;
+import com.course.entity.Fish;
+import com.course.entity.Fruit;
+import com.course.entity.Meat;
+import com.course.entity.User;
+import com.course.entity.Vegetable;
 import com.framework.Page;
 
 
@@ -23,7 +28,7 @@ public class CollectController {
 	private CollectServiceImpl collectServiceImpl;
 	
 	@RequestMapping("add")
-	public String add(@RequestParam(name="UserId") Integer cuserid,@RequestParam(name="FruitId") Integer cfruitid,@RequestParam(name="MeatId") Integer cmeatid,@RequestParam(name="FishId") Integer cfishid,@RequestParam(name="VegetableId") Integer cvegetableid,HttpServletRequest request){
+	public String add(@RequestParam(name="UserId") User cuserid,@RequestParam(name="FruitId") Fruit cfruitid,@RequestParam(name="MeatId") Meat cmeatid,@RequestParam(name="FishId") Fish cfishid,@RequestParam(name="VegetableId") Vegetable cvegetableid,HttpServletRequest request){
 		
 		Collect p = new Collect();
 		p.setUserId(cuserid);

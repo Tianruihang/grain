@@ -12,11 +12,11 @@ import javax.persistence.Table;
 @Table(name="collect")
 public class Collect {
 	public Integer CollectId;
-	public Integer UserId;
-	public Integer FruitId;
-	public Integer MeatId;
-	public Integer FishId;
-	public Integer VegetableId;
+	public User UserId;
+	public Fruit FruitId;
+	public Meat MeatId;
+	public Fish FishId;
+	public Vegetable VegetableId;
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -26,46 +26,49 @@ public class Collect {
 	public void setCollectId(Integer CollectId) {
 		this.CollectId = CollectId;
 	}
-	public Integer getUserId() {
+	
+	@ManyToOne
+	@JoinColumn(name="UserId")
+	public User getUserId() {
 		return UserId;
 	}
-	public void setUserId(Integer UserId) {
+	public void setUserId(User UserId) {
 		this.UserId = UserId;
 	}
 	
 	@ManyToOne
 	@JoinColumn(name="FruitId")
-	public Integer getFruitId() {
+	public Fruit getFruitId() {
 		return FruitId;
 	}
-	public void setFruitId(Integer FruitId) {
+	public void setFruitId(Fruit FruitId) {
 		this.FruitId = FruitId;
 	}
 	
 	@ManyToOne
 	@JoinColumn(name="MeatId")
-	public Integer getMeatId() {
+	public Meat getMeatId() {
 		return MeatId;
 	}
-	public void setMeatId(Integer MeatId) {
+	public void setMeatId(Meat MeatId) {
 		this.MeatId = MeatId;
 	}
 	
 	@ManyToOne
 	@JoinColumn(name="FishId")
-	public Integer getFishId() {
+	public Fish getFishId() {
 		return FishId;
 	}
-	public void setFishId(Integer FishId) {
+	public void setFishId(Fish FishId) {
 		this.FishId = FishId;
 	}
 	
 	@ManyToOne
 	@JoinColumn(name="VegetableId")
-	public Integer getVegetableId() {
+	public Vegetable getVegetableId() {
 		return VegetableId;
 	}
-	public void setVegetableId(Integer VegetableId) {
+	public void setVegetableId(Vegetable VegetableId) {
 		this.VegetableId = VegetableId;
 	}
 	
